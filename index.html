@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="card">
+        <h1 id="greeting-text">Đang tải...</h1>
+    </div>
+
+    <script>
+
+        function getName() {
+            let name = prompt("What is your name?");
+            return name;
+        }
+
+        setTimeout(function renderUI() {
+            const content = document.getElementById("greeting-text");
+            let day = new Date();
+            let hour = day.getHours();
+            let greeting = "";
+            console.log(hour)
+
+            if(hour <= 11 && hour >= 5) greeting = "Good Morning "
+            else if(hour <= 16 && hour >= 12) greeting = "Good Afternoon "
+            else if(hour <= 20 && hour >= 17) greeting = "Good Evening "
+            else greeting = "Good Night "
+
+            console.log(greeting);
+            content.textContent = greeting + getName() + " !";
+        }, 1000)
+
+    </script>
+</body>
+</html>
